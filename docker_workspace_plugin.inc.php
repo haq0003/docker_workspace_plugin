@@ -186,9 +186,11 @@ other Usefull commands :
   docker-compose  stop
   docker-compose  kill
   docker-compose  up -d
+  docker-compose exec workspace bash
   docker image list
   docker rmi nomimage
   docker system prune -a -f
+  
 
 INF;
 
