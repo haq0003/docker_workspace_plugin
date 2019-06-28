@@ -92,7 +92,9 @@ class docker_workspace_plugin
                     $command .= " && touch $lemp_compose_user_dir/.README ";
                     $command .= " && chown -Rf {$data['new']['puser']}:{$data['new']['pgroup']} $lemp_compose_user_dir ";
                     $command .= " && find $lemp_compose_user_dir -type d -exec chmod 775 {} \; && find $lemp_compose_user_dir -type f -exec chmod 777 {} \; ";
-                    $command .= " && rm $lemp_compose_user_dir/docker-compose.yml ";
+                    if(is_file("$lemp_compose_user_dir/docker-compose.yml")){
+                        $command .= " && rm $lemp_compose_user_dir/docker-compose.yml ";
+                    }
                     $command .= " && chattr +i $lemp_compose_dir ";
                     $command .= " && usermod -a -G docker {$data['new']['puser']} ";
 
@@ -172,6 +174,18 @@ PASSWD  : {$data_map['[[ROOT_PASS]]']}
 /** MYSQL **/
 
 mysql -uroot -p"{$data_map['[[ROOT_PASS]]']}" -h mysql
+
+/** COMMAND **/
+
+First build : docker-compose up --force-recreate --build -d
+
+other Usefull commands : 
+  docker-compose log
+  docker-compose ps
+  docker-compose  down
+  docker-compose  stop
+  docker-compose  kill
+  docker-compose  up -d
 
 
 INF;
