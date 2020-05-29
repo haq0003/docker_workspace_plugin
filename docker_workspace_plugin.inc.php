@@ -157,12 +157,12 @@ HOST    : {$data_map['[[DOMAIN]]']}:{$data_map['[[USER_ID]]']}80
 HOST    : {$data_map['[[DOMAIN]]']}
 PORT    : {$data_map['[[USER_ID]]']}22
 LOGIN   : {$data_map['[[PUSER]]']}
-PASSWD  : {$data_map['[[USERNAME]]']}{$data_map['[[SUFF_PASS]]']} 
+PASSWD  : {$data_map['[[USERNAME]]']}_{$data_map['[[SUFF_PASS]]']} 
 ROOTPWD : {$data_map['[[ROOT_PASS]]']}
 PATH    : /var/www
 
 COMMAND : ssh -p {$data_map['[[USER_ID]]']}22 {$data_map['[[PUSER]]']}@{$data_map['[[DOMAIN]]']}
-PASS : {$data_map['[[USERNAME]]']}{$data_map['[[SUFF_PASS]]']} 
+PASS : {$data_map['[[USERNAME]]']}_{$data_map['[[SUFF_PASS]]']} 
 
 
 
